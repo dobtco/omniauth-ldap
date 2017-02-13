@@ -13,7 +13,7 @@ module OmniAuth
       class AuthenticationError < StandardError; end
       class ConnectionError < StandardError; end
 
-      VALID_ADAPTER_CONFIGURATION_KEYS = [:host, :port, :method, :bind_dn, :password, :try_sasl, :sasl_mechanisms, :uid, :base, :allow_anonymous, :filter]
+      VALID_ADAPTER_CONFIGURATION_KEYS = [:host, :port, :method, :tls_options, :bind_dn, :password, :try_sasl, :sasl_mechanisms, :uid, :base, :allow_anonymous, :filter]
 
       # A list of needed keys. Possible alternatives are specified using sub-lists.
       MUST_HAVE_KEYS = [:host, :port, :method, [:uid, :filter], :base]
@@ -46,6 +46,7 @@ module OmniAuth
           instance_variable_set("@#{name}", @configuration[name])
         end
         method = ensure_method(@method)
+        tls_options = @tls_options || {}
         config = {
           :host => @host,
           :port => @port,
@@ -61,7 +62,7 @@ module OmniAuth
                   }
         config[:auth] = @auth
         @connection = Net::LDAP.new(config)
-        @connection.encryption(method)
+        @connection.encryption(method: method, tls_options: tls_options)
       end
 
       #:base => "dc=yourcompany, dc=com",
