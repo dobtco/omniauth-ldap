@@ -9,6 +9,8 @@ The purpose of this fork is to:
   - In this fork net-ldap is removed from the gemspec
   - To bring in the fixed version of net-ldap, add the following to your applications gemfile, above omniauth-ldap:
   `gem 'net-ldap', git: 'git@github.com:ruby-ldap/ruby-net-ldap.git', ref: '8031bf5df79ec6fb3d7f7d2540f190b08c3c6df9'`
+  - upstream tracking https://github.com/intridea/omniauth-ldap/issues/73
+- [ ] Add setting to force checking server ssl cert (https://github.com/intridea/omniauth-ldap/issues/58)
 - [ ] Fix issue where frozen strings are passed to pyu-ruby-sasl. The sasl gem does some in-place operations on config strings, but omniauth-ldap passes in config strings as frozen strings
 - [ ] Add setting to force checking server ssl cert (https://github.com/intridea/omniauth-ldap/issues/58)
 
