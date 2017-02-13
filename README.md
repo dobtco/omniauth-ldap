@@ -1,5 +1,14 @@
 # OmniAuth LDAP
 
+## Fork
+
+This is a fork of https://github.com/intridea/omniauth-ldap
+The purpose of this fork is to:
+
+- [ ] Use fork of ruby-net-ldap where the following PR is merged: https://github.com/ruby-ldap/ruby-net-ldap/pull/281
+- [ ] Add setting to force checking server ssl cert (https://github.com/intridea/omniauth-ldap/issues/58)
+- [ ] Fix issue where frozen strings are passed to pyu-ruby-sasl. The sasl gem does some in-place operations on config strings, but omniauth-ldap passes in config strings as frozen strings
+
 == LDAP
 
 Use the LDAP strategy as a middleware in your application:
