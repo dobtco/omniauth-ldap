@@ -16,6 +16,8 @@ The purpose of this fork is to:
   - [ ] tests added
   - [ ] omniauth-ldap README updated with new config options
 - [ ] Fix issue where frozen strings are passed to pyu-ruby-sasl. The sasl gem does some in-place operations on config strings, but omniauth-ldap passes in config strings as frozen strings
+  - [x] implementation
+  - [ ] upstream
 
 == LDAP
 
