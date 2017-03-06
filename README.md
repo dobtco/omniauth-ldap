@@ -5,10 +5,8 @@
 This is a fork of https://github.com/intridea/omniauth-ldap
 The purpose of this fork is to:
 
-- [x] Use fork of ruby-net-ldap where the following PR is merged: https://github.com/ruby-ldap/ruby-net-ldap/pull/281
-  - In this fork net-ldap is removed from the gemspec
-  - To bring in the fixed version of net-ldap, add the following to your applications gemfile, above omniauth-ldap:
-  `gem 'net-ldap', git: 'git@github.com:ruby-ldap/ruby-net-ldap.git', ref: '8031bf5df79ec6fb3d7f7d2540f190b08c3c6df9'`
+- [x] Uses ruby-net-ldap `0.16.0`
+  - this version has the SASL NameError fixed, and supports hostname verification
   - upstream tracking https://github.com/intridea/omniauth-ldap/issues/73
 - [ ] Add ability to pass tls_options through.
   - this lets you force checking server ssl cert, or specify custom cert. (https://github.com/intridea/omniauth-ldap/issues/58)
