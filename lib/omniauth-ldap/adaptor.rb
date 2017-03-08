@@ -120,7 +120,7 @@ module OmniAuth
         bind_dn = options[:username]
         initial_credential = ""
         challenge_response = Proc.new do |cred|
-          pref = SASL::Preferences.new :digest_uri => "ldap/#{@host}", :username => bind_dn.dup, :has_password? => true, :password => options[:password]
+          pref = SASL::Preferences.new :digest_uri => "ldap/#{@host}", :username => bind_dn, :has_password? => true, :password => options[:password]
           sasl = SASL.new("DIGEST-MD5", pref)
           response = sasl.receive("challenge", cred)
           response[1]
