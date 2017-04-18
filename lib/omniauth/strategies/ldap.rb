@@ -51,7 +51,8 @@ module OmniAuth
 
       def filter adaptor
         if adaptor.filter and !adaptor.filter.empty?
-          Net::LDAP::Filter.construct(adaptor.filter % {username: @options[:name_proc].call(request['username'])})
+          escaped_username = Net::LDAP::Filter.escape(@options[:name_proc].call(request['username']))
+          Net::LDAP::Filter.construct(adaptor.filter % {username: escaped_username})
         else
           Net::LDAP::Filter.eq(adaptor.uid, @options[:name_proc].call(request['username']))
         end
