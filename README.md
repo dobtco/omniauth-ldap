@@ -13,6 +13,9 @@ The purpose of this fork is to:
   - [x] param passed through
   - [ ] tests added
   - [ ] omniauth-ldap README updated with new config options
+- [ ] Escape username before interpolating into filter template
+  - [x] escape implemented
+  - [ ] tests added
 
 == LDAP
 
